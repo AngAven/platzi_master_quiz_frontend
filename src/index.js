@@ -6,6 +6,7 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import './styles/index.css'
 
 const API = 'http://localhost:3000/api/questions'
+let resultadosCorrectos = []
 
 const evaluation = async (url_api) => {
   let evaluacioFinal = new Array(0)
@@ -60,27 +61,43 @@ const llenarEvaluacion = async () => {
 
       switch (i) {
         case 1:
+          inputCheck.dataset.id = (`${data._id}`)
+          inputCheck.dataset.r = (`${data.respuesta}`)
+          inputCheck.dataset.opcion = (`${i}`)
+          inputCheck.dataset.pregunta = (`${data.numero}`)
           inputCheck.name = `pregunta-${data.numero}`
-          inputCheck.id = `opccion-${data.numero}-${i}`
-          labelInputCheck.htmlFor = `opccion-${data.numero}-${i}`
+          inputCheck.id = `opcion-${data.numero}-${i}`
+          labelInputCheck.htmlFor = `opcion-${data.numero}-${i}`
           labelInputCheck.textContent = data.op1
           break
         case 2:
+          inputCheck.dataset.id = (`${data._id}`)
+          inputCheck.dataset.r = (`${data.respuesta}`)
+          inputCheck.dataset.opcion = (`${i}`)
+          inputCheck.dataset.pregunta = (`${data.numero}`)
           inputCheck.name = `pregunta-${data.numero}`
-          inputCheck.id = `opccion-${data.numero}-${i}`
-          labelInputCheck.htmlFor = `opccion-${data.numero}-${i}`
+          inputCheck.id = `opcion-${data.numero}-${i}`
+          labelInputCheck.htmlFor = `opcion-${data.numero}-${i}`
           labelInputCheck.textContent = data.op2
           break
         case 3:
+          inputCheck.dataset.id = (`${data._id}`)
+          inputCheck.dataset.r = (`${data.respuesta}`)
+          inputCheck.dataset.opcion = (`${i}`)
+          inputCheck.dataset.pregunta = (`${data.numero}`)
           inputCheck.name = `pregunta-${data.numero}`
-          inputCheck.id = `opccion-${data.numero}-${i}`
-          labelInputCheck.htmlFor = `opccion-${data.numero}-${i}`
+          inputCheck.id = `opcion-${data.numero}-${i}`
+          labelInputCheck.htmlFor = `opcion-${data.numero}-${i}`
           labelInputCheck.textContent = data.op3
           break
         case 4:
+          inputCheck.dataset.id = (`${data._id}`)
+          inputCheck.dataset.r = (`${data.respuesta}`)
+          inputCheck.dataset.opcion = (`${i}`)
+          inputCheck.dataset.pregunta = (`${data.numero}`)
           inputCheck.name = `pregunta-${data.numero}`
-          inputCheck.id = `opccion-${data.numero}-${i}`
-          labelInputCheck.htmlFor = `opccion-${data.numero}-${i}`
+          inputCheck.id = `opcion-${data.numero}-${i}`
+          labelInputCheck.htmlFor = `opcion-${data.numero}-${i}`
           labelInputCheck.textContent = data.op4
           break
         default: labelInputCheck.textContent = 'No se pudo cargar pregunta'
@@ -93,7 +110,30 @@ const llenarEvaluacion = async () => {
 
     evaluacion.appendChild(contenedorPregunta)
   })
+
+  agregarEventos()
+}
+
+const agregarEventos = () => {
+  const inputsChanged = document.querySelectorAll('input')
+  const calcularResultados = document.getElementById('calcular-resultado')
+
+  inputsChanged.forEach(input => {
+    input.addEventListener('change', () => {
+      const inputsChecked = Array.from(document.querySelectorAll('input:checked'))
+      resultadosCorrectos = inputsChecked.filter(item => item.dataset.r == item.dataset.opcion)
+    })
+  })
+
+  calcularResultados.addEventListener('click', () => {
+    const inputsChecked = Array.from(document.querySelectorAll('input:checked'))
+
+    if(inputsChecked.length < 5){
+      console.log('llenar todos los datos')
+    }
+
+    console.log('todo bien')
+  })
 }
 
 llenarEvaluacion()
-
