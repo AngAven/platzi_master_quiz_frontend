@@ -11,18 +11,37 @@
 
   <div id="evaluacion">
     <h1>Evaluación</h1>
+    <div id="lds-grid" class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </div>
 
-  <br>
-  <br>
-  <br>
-  <button id="calcular-resultado" type="button" class="btn btn-primary">Calcular resultado</button>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <canvas id="resultados" width="400" height="400"></canvas>
+  <div id="resultados" class="hide-element">
+    <canvas id="graficaResultados" class="" width="400" height="400"></canvas>
+    <button id="nueva-evaluacion" type="button" class="btn btn-secondary btn-lg" onclick="window.location.reload()">Nueva
+      evaluación</button>
+  </div>
+
+  <!-- Button trigger modal -->
+  <button id="modal-all-checked" type="button" class="btn btn-primary hide-element" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Revise sus respuestas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Se tiene que seleccionar una respuesta para todas las preguntas
+        </div>
+      </div>
+    </div>
+  </div>
+
 </main>
 </body>
 </html>

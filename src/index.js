@@ -34,8 +34,19 @@ const evaluation = async (url_api) => {
 }
 
 const llenarEvaluacion = async () => {
+  const loading = document.getElementById('lds-grid')
   const preguntas = await evaluation(API)
+  const evaluaciondiv = document.getElementById('evaluacion')
+  const buttonCalcularResultado = document.createElement('button')
 
+  buttonCalcularResultado.id = 'calcular-resultado'
+  buttonCalcularResultado.type = 'button'
+  buttonCalcularResultado.classList.add('btn')
+  buttonCalcularResultado.classList.add('btn-primary')
+  buttonCalcularResultado.classList.add('btn-lg')
+  buttonCalcularResultado.textContent = 'Calcular resultado'
+
+  // Creación de opciones a la pregunta
   preguntas.forEach(item => {
     const data = item[0]
     const evaluacion = document.getElementById('evaluacion')
@@ -113,6 +124,9 @@ const llenarEvaluacion = async () => {
     evaluacion.appendChild(contenedorPregunta)
   })
 
+  evaluaciondiv.appendChild(buttonCalcularResultado)
+  loading.style.display = 'none'
+  evaluaciondiv.style.textAlign = 'unset'
   agregarEventos()
 }
 
@@ -134,11 +148,21 @@ const agregarEventos = () => {
     const respuestasIncorrectas = 5 - respuestasCorrectas
 
     if(preguntasContestadas < 5){
-      console.log('Llenar todos los datos')
+      const modal = document.getElementById('modal-all-checked')
+      modal.click()
+
+      return
     }
 
-    var resultados = document.getElementById('resultados').getContext('2d');
-    var chartResults = new Chart(resultados, {
+    const evaluacion = document.getElementById('evaluacion')
+    const resultadosGrafica = document.getElementById('resultados')
+
+    evaluacion.classList.add('hide-element')
+    resultadosGrafica.classList.remove('hide-element')
+
+    //Gráfica de dona
+    const resultados = document.getElementById('graficaResultados').getContext('2d');
+    const chartResults = new Chart(resultados, {
       type: 'doughnut',
       data: {
         labels: [
@@ -156,7 +180,6 @@ const agregarEventos = () => {
         }]
       }
     })
-
   })
 }
 
