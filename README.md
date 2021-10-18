@@ -25,3 +25,7 @@ Nos generará una carpeta './dist', dentro de la misma y desde terminal podemos 
 Este comando de la biblioteca de npm necesita estar de forma global en nuestra máquina
 
 Puedes ver el proyecto corriendo [AQUÍ](https://angaven.github.io/proyecto-evaluacion-despliegue/)
+
+## Diagrama del proyecto
+
+![Diagrama](https://raw.githubusercontent.com/AngAven/frontend_sistema_de_evaluacion/main/src/assets/img/diagrama.png "Diagrama")
