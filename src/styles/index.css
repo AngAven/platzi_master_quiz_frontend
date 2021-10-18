@@ -7,3 +7,15 @@
 html {
     font-size: 62.5%;
 }
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+}
+
+main{
+    padding-top: 10rem;
+    width: 70vw;
+}
