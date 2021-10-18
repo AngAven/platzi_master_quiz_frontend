@@ -1,4 +1,6 @@
 import axios from 'axios'
+import Chart from 'chart.js/auto';
+
 
 import '../node_modules/bootstrap/dist/js/bootstrap'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
@@ -127,12 +129,34 @@ const agregarEventos = () => {
 
   calcularResultados.addEventListener('click', () => {
     const inputsChecked = Array.from(document.querySelectorAll('input:checked'))
+    const preguntasContestadas = inputsChecked.length
+    const respuestasCorrectas = resultadosCorrectos.length
+    const respuestasIncorrectas = 5 - respuestasCorrectas
 
-    if(inputsChecked.length < 5){
-      console.log('llenar todos los datos')
+    if(preguntasContestadas < 5){
+      console.log('Llenar todos los datos')
     }
 
-    console.log('todo bien')
+    var resultados = document.getElementById('resultados').getContext('2d');
+    var chartResults = new Chart(resultados, {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Erroneas',
+          'Correctas',
+        ],
+        datasets: [{
+          label: 'Resultados',
+          data: [respuestasCorrectas, respuestasIncorrectas],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)'
+          ],
+          hoverOffset: 4
+        }]
+      }
+    })
+
   })
 }
 
