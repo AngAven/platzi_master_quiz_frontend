@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import './styles/index.css'
 
-const API = 'http://localhost:3000/api/questions'
+const API = 'https://app.apievaluacion.angelavendanocruz.com/api/questions'
 let resultadosCorrectos = []
 
 const evaluation = async (url_api) => {
