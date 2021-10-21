@@ -1,31 +1,24 @@
-## Instalación
+## About
+This project selects a random questions provided by [API](https://github.com/AngAven/platzi_master_api_quiz "API link"), you can answer the dummy questions, then you can see the results in a donut chart. 
 
-> Se requiere descargar [API](https://github.com/AngAven/api_sistema_de_evaluacion) que se conecta con Mongo Atlas,
-> este proyecto corre por el puerto por defecto de nodemon [localhost:3000], en el archivo ".env.example", estan las
-> variables de entorno que se necesitan para que pueda conectarse a una insrtancia propia. También puedes usar [el
-> servicio público](https://app.apievaluacion.angelavendanocruz.com/api/questions) para hacer las peticiones. Ten en
-> cuenta que no es un servicio dedicado y muchas peticiones afectarán al mismo.
+## Test online 
+You can test in web, click here =>  [🖥](https://angaven.github.io/platzi_master_quiz_deployed/ "Link test project")
 
-Para correr este proyecto en local, se necesita clonar con el siguiente comando de git
+## Technologies
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /><img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/><img src="https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white" />
 
-`git clone [url]`
+## Installation
 
-Dentro de la carpeta que se descargó corremos el siguiente comando y esperamos a que se instalen los paquetes de dependencias
+> Download this [API](https://github.com/AngAven/platzi_master_api_quiz) that coneccts with [MongoAtlas](https://www.mongodb.com/atlas/database)
 
-`npm install`
+```sh
+Download repository, then enter into folder downloaded by terminal
+Run in terminal "npm install"
+Run in terminal "npm run:dev"
+This will generate a "./dist" folder where you can see the project compiled, 
+open the index.html in your browser.
+```
 
-Posteriormente corremos
-
-`npm run:dev`
-
-Nos generará una carpeta './dist', dentro de la misma y desde terminal podemos correr el comando
-
-`live-server`
-
-Este comando de la biblioteca de npm necesita estar de forma global en nuestra máquina
-
-Puedes ver el proyecto corriendo [AQUÍ](https://angaven.github.io/proyecto-evaluacion-despliegue/)
-
-## Diagrama del proyecto
+## Flowchart
 
 ![Diagrama](https://raw.githubusercontent.com/AngAven/frontend_sistema_de_evaluacion/main/src/assets/img/diagrama.png "Diagrama")
